@@ -1,15 +1,15 @@
 const express = require('express');
 const router = express.Router();
-const router = require('../db/saveData');
+const storeNotes = require('../db/storeNotes');
 
 router.get('/notes', (req, res) => {
-    saveData
+    storeNotes
         .retrieveNotes()
         .then(notes=> res.json(notes))
 })
 
 router.post('/notes', (req, res) => {
-    saveData
+    storeNotes
         .addNote(req.body)
         .then((note) => res.json(note))
 });
